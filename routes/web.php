@@ -17,14 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('myservices/{name}/{price}/{status}',function($name,$price,$status){
-    $data['name']=$name;
-    $data['price']=$price;
-    $data['status']=$status;
-    return view('services',$data);
-});
+Route::get('myservices/{name}/{price}/{status}',[App\Http\Controllers\ServicesController::class,'index']);
 
+Route::get('services/{name}',[App\Http\Controllers\ServicesController::class,'getServiceName']);
 
+Route::get('/Products',[App\Http\Controllers\ProductsController::class,'getProducts']);
 
+Route::get('/form/open',[App\Http\Controllers\FormsController::class,'openForm']);
 
+Route::post('/form/submit',[App\Http\Controllers\FormsController::class,'submitForm']);
 
