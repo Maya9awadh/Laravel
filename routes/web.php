@@ -27,3 +27,6 @@ Route::get('/form/open',[App\Http\Controllers\FormsController::class,'openForm']
 
 Route::post('/form/submit',[App\Http\Controllers\FormsController::class,'submitForm']);
 
+Route::post('file/storage',[App\Http\Controllers\StorageController::class,'uploadFile']);
+
+Route::view('upload-file','storage');
